@@ -1,5 +1,3 @@
-S3 = Rails.application.config_for(:aws)
-
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -36,19 +34,5 @@ Rails.application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
-  aws = Rails.application.config_for(:aws)
 
-  config.paperclip_defaults = {
-    storage: :s3,
-    url: ':s3_alias_url',
-    s3_host_alias: S3["s3_host_alias"],
-    s3_credentials: {
-      access_key_id: S3["access_key_id"],
-      secret_access_key: S3["secret_access_key"],
-      bucket: S3["bucket"]
-    },
-    s3_protocol: :https,
-    path: "images/:id/:filename"
-  }
-  
 end

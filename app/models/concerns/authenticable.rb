@@ -15,12 +15,23 @@ module Authenticable
     #
     def find_by_valid_token request_details
       return false unless request_details[:user_id].present?
-      obj = Redis.get("users/#{request_details[:user_id]}")
-      if obj.present?
-        validate_access_token JSON.parse obj
+
+      # User thid method for sql enabled auth
+      obj = User.find(request_details[:user_id])
+      if obj.present? && obj.access_token == request_details[:access_token]
+        obj
       else
         false
       end
+
+      # Use this method for redis enabled auth
+      # obj = Redis.get("users/#{request_details[:user_id]}")
+      # if obj.present?
+      #   validate_access_token JSON.parse obj
+      # else
+      #   false
+      # end
+
     end
 
   end

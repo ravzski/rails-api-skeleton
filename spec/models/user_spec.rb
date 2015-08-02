@@ -8,7 +8,6 @@ describe User do
       last_name: 'User1',
       email: 'user13@test.com',
       password: 'password1')
-
   end
 
 

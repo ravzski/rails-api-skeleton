@@ -1,6 +1,6 @@
 class SessionsSerializer
 
-  def self.show current_user
+  def self.show
     {
       id: current_user.id,
       email: current_user.email,
@@ -13,7 +13,7 @@ class SessionsSerializer
   def self.create user
     {
       auth_token: user.access_token,
-      user_id: user.id  
+      user_id: user.id
     }
   end
 

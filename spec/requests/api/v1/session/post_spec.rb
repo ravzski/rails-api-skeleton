@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'POST /api/session' do
 
-  let(:credentials) { { email: 'eneighbr@me.com', password: 'password1' } }
+  let(:credentials) { { email: 'test@test.com', password: 'password' } }
   let(:user) { User.create(credentials) }
 
 
@@ -14,7 +14,7 @@ describe 'POST /api/session' do
   context 'correct credentails' do
 
     before do
-      post_request(email: user.email, password: 'password1')
+      post_request(email: user.email, password: 'password')
     end
 
     it 'returns 200 status' do
@@ -34,8 +34,8 @@ describe 'POST /api/session' do
       post_request(email: user.email, password: 'wrong password')
     end
 
-    it 'returns 401 status' do
-      expect(response.status).to eq 401
+    it 'returns eq 403 status' do
+      expect(response.status).to eq 403
     end
 
     it 'returns error message' do

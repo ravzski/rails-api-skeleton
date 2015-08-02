@@ -8,8 +8,8 @@ class Api::V1::SessionsController < ApiController
 
   def create
     user = User.find_by_credentials(params[:credentials])
-    if user && user.set_access_token(request_details)
-      render json: SessionsSerializer.create
+    if user && user.set_access_token
+      render json: SessionsSerializer.create(user)
     else
       render json: { error: 'Incorrect email or password' }, status: 403
     end
