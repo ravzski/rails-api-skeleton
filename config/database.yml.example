@@ -1,0 +1,27 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: scm_development
+  pool: 5
+  username: postgres
+  password: admin
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: scm_test
+  pool: 5
+  username: postgres
+  password: admin
+  host: localhost
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: db_production
+  username: 
+  username: postgres
+  password: admin
+  host: localhost
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BASE APP</title>
+    <base href="/" />
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="true" name="HandheldFriendly" />
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+    <meta content="text/html;charset=UTF-8" http-equiv="content-type" />
+
+    <%= stylesheet_link_tag    "app" %>
+    <%= javascript_include_tag "app" %>
+
+  </head>
+  <body ng-app="client">
+    <div ui-view=""></div>
+  </body>
+</html>
